@@ -1,13 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Table } from 'react-bootstrap';
-import Title from '@/Components/Title.jsx';
-import CreateBtn from '@/Components/Buttons/CreateBtn.jsx';
-import TableRow from '@/Components/List/TableRow.jsx';
-import 'i18next.js';
+import {Table} from 'react-bootstrap';
+import Title from '@/Components/Title.js';
+import CreateBtn from '@/Components/Buttons/CreateBtn.js';
+import TableRow from '@/Components/List/TableRow.js';
+// import 'i18next.js';
 
-export default function List ({users}) {
+export default function List({users}) {
     return (
         <Container fluid="md">
             <Row>

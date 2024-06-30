@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserCreateRequest;
-use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -32,7 +31,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserCreateRequest $request): \Symfony\Component\HttpFoundation\Response
+    public function store(UserRequest $request): \Symfony\Component\HttpFoundation\Response
     {
         $user = User::create($request->validated());
 
@@ -58,7 +57,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserUpdateRequest $request, User $user): \Symfony\Component\HttpFoundation\Response
+    public function update(UserRequest $request, User $user): \Symfony\Component\HttpFoundation\Response
     {
         $data = $request->validated();
 
