@@ -1,9 +1,15 @@
-import { Person } from 'react-bootstrap-icons';
-import { Link } from '@inertiajs/react';
+import {Person} from 'react-bootstrap-icons';
+import {Link} from '@inertiajs/react';
+import {useLaravelReactI18n} from "laravel-react-i18n";
 
-export default function ShowBtn ({id}) {
+interface ShowBtnProps {
+    id: number
+}
+
+export default function ShowBtn({id}: ShowBtnProps) {
+    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
     return (
-        <Link href={`/user/${id}`} title="Смотреть" className={'text-success ml-2 fs-5'}>
+        <Link href={`/user/${id}`} title={t('Show')} className={'text-success ml-2 fs-5'}>
             <Person className={'d-inline'}/>
         </Link>
     );

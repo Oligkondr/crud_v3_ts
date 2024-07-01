@@ -8,22 +8,29 @@ import EditBtn from '@/Components/Buttons/EditBtn.js';
 import DestroyBtn from '@/Components/Buttons/DestroyBtn.js';
 import TableRow from '@/Components/Show/TableRow.js';
 import {Fragment} from 'react';
+import {useLaravelReactI18n} from "laravel-react-i18n";
 
-export default function Show({user}) {
+interface ShowProps {
+    user: any,
+}
+
+export default function Show({user}: ShowProps) {
+    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
 
     const keys = {
         id: 'ID',
-        name: 'ФИО',
-        gender: 'Пол',
-        birthday_format: 'Дата рождения',
+        name: t('Name'),
+        gender: t('Gender'),
+        birthday_format: t('Birthday'),
         email: 'E-mail',
     };
 
+    // @ts-ignore
     return (
         <Container fluid="md">
             <Row>
                 <Col>
-                    <Title title={`Пользователь #${user.id}`}/>
+                    <Title title={`${t('User')} #${user.id}`}/>
                 </Col>
                 <Col className={'text-end'}>
                     <ListBtn/>

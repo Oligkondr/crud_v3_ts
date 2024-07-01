@@ -3,13 +3,20 @@ import { Link, router } from '@inertiajs/react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
+import {useLaravelReactI18n} from "laravel-react-i18n";
 
-export default function DestroyBtn ({ id }) {
+interface DestroyBtnProps {
+    id: number
+}
+
+export default function DestroyBtn ({ id }: DestroyBtnProps) {
+
+    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = (e) => {
+    const handleShow = (e: any) => {
         e.preventDefault();
         setShow(true);
     };
@@ -21,21 +28,21 @@ export default function DestroyBtn ({ id }) {
 
     return (
         <>
-            <Link onClick={handleShow} title="Удалить" className={'text-danger ml-2 fs-5'}>
+            <Link href="#" onClick={handleShow} title={t('Delete')} className={'text-danger ml-2 fs-5'}>
                 <Trash3 className={'d-inline'}/>
             </Link>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Внимание!</Modal.Title>
+                    <Modal.Title>{t('Attention!')}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Пользователь будет удален безвозвратно!</Modal.Body>
+                <Modal.Body>{t('The user will be deleted permanently!')}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Отменить
+                        {t('Cancel')}
                     </Button>
                     <Button variant="danger" onClick={handleDestroy}>
-                        Удалить
+                        {t('Delete')}
                     </Button>
                 </Modal.Footer>
             </Modal>

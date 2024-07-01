@@ -5,14 +5,20 @@ import {Table} from 'react-bootstrap';
 import Title from '@/Components/Title.js';
 import CreateBtn from '@/Components/Buttons/CreateBtn.js';
 import TableRow from '@/Components/List/TableRow.js';
-// import 'i18next.js';
+import {useLaravelReactI18n} from "laravel-react-i18n";
 
-export default function List({users}) {
+interface ListProps {
+    users: any
+}
+
+export default function List({users}: ListProps) {
+    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
+
     return (
         <Container fluid="md">
             <Row>
                 <Col>
-                    <Title title={'Список пользователей'}/>
+                    <Title title={t('User list')}/>
                 </Col>
                 <Col className={'text-right mr-2'}>
                     <CreateBtn/>
@@ -22,15 +28,15 @@ export default function List({users}) {
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>ФИО</th>
+                    <th>{t('Name')}</th>
                     <th>E-mail</th>
-                    <th>Пол</th>
-                    <th>Дата рождения</th>
+                    <th>{t('Gender')}</th>
+                    <th>{t('Birthday')}</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                {users.map((user, i) => (
+                {users.map((user: any, i: number) => (
                     <TableRow key={i} user={user}/>
                 ))}
                 </tbody>

@@ -2,7 +2,11 @@ import EditBtn from '@/Components/Buttons/EditBtn.js';
 import ShowBtn from '@/Components/Buttons/ShowBtn.js';
 import DestroyBtn from '@/Components/Buttons/DestroyBtn.js';
 
-export default function TableRow ({user}) {
+interface TableRowProps {
+    user: any
+}
+
+export default function TableRow ({user}: TableRowProps) {
     return (
         <tr>
             <td>{user.id}</td>
