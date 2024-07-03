@@ -9,12 +9,14 @@ import DestroyBtn from '@/Components/Buttons/DestroyBtn.js';
 import TableRow from '@/Components/Show/TableRow.js';
 import {Fragment} from 'react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
+import Layout from "@/Pages/Layout";
+import List from "@/Pages/User/List";
 
 interface ShowProps {
     user: any,
 }
 
-export default function Show({user}: ShowProps) {
+const Show = ({user}: ShowProps) => {
     const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
 
     const keys = {
@@ -50,3 +52,7 @@ export default function Show({user}: ShowProps) {
         </Container>
     );
 }
+
+Show.layout = (page: any) => <Layout children={page}/>
+
+export default Show;

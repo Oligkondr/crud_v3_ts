@@ -15,7 +15,8 @@ export default function Index() {
                 ]}
                 onChange={(event) => setLocale(event.currentTarget.value)}
             />
-            <h1>{t('show users')}</h1>
+            <h1>{t('test')}</h1>
+            <a href="/user">Ссылка</a>
         </>
     );
 }

@@ -1,4 +1,3 @@
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {Button, Form} from 'react-bootstrap';
@@ -7,8 +6,9 @@ import ListBtn from '@/Components/Buttons/ListBtn.js';
 import {useState} from 'react';
 import {router, usePage} from '@inertiajs/react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
+import Layout from "@/Pages/Layout";
 
-export default function Create() {
+const Create = () => {
 
     const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
 
@@ -35,7 +35,7 @@ export default function Create() {
     }
 
     return (
-        <Container fluid="md">
+        <>
             <Row>
                 <Col>
                     <Title title={t('Create user')}/>
@@ -96,6 +96,10 @@ export default function Create() {
                     {t('Create')}
                 </Button>
             </Form>
-        </Container>
+        </>
     );
 }
+
+Create.layout = (page: any) => <Layout children={page}/>
+
+export default Create;

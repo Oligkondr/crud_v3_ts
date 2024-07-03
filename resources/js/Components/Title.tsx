@@ -4,6 +4,6 @@ interface TitleProps {
 
 export default function Title({title}: TitleProps) {
     return (
-        <h1 style={{fontSize: '2rem'}}>{title}</h1>
+        <h2 style={{fontSize: '2rem'}}>{title}</h2>
     );
 }

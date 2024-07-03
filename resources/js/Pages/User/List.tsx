@@ -1,4 +1,3 @@
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {Table} from 'react-bootstrap';
@@ -6,16 +5,17 @@ import Title from '@/Components/Title.js';
 import CreateBtn from '@/Components/Buttons/CreateBtn.js';
 import TableRow from '@/Components/List/TableRow.js';
 import {useLaravelReactI18n} from "laravel-react-i18n";
+import Layout from "@/Pages/Layout";
 
 interface ListProps {
     users: any
 }
 
-export default function List({users}: ListProps) {
+const List = ({users}: ListProps) => {
     const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
 
     return (
-        <Container fluid="md">
+        <>
             <Row>
                 <Col>
                     <Title title={t('User list')}/>
@@ -41,6 +41,10 @@ export default function List({users}: ListProps) {
                 ))}
                 </tbody>
             </Table>
-        </Container>
+        </>
     );
 }
+
+List.layout = (page: any) => <Layout children={page}/>
+
+export default List;

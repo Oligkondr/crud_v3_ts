@@ -7,13 +7,15 @@ import ListBtn from '@/Components/Buttons/ListBtn.js';
 import {useState} from 'react';
 import {router, usePage} from '@inertiajs/react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
+import Layout from "@/Pages/Layout";
+import List from "@/Pages/User/List";
 
 interface EditProps {
     user: any,
 }
 
 
-export default function Edit({user}: EditProps) {
+const Edit = ({user}: EditProps) => {
 
     const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
 
@@ -36,7 +38,7 @@ export default function Edit({user}: EditProps) {
     }
 
     return (
-        <Container fluid="md">
+        <>
             <Row>
                 <Col>
                     <Title title={`${t('User')} #${user.id}`}/>
@@ -91,6 +93,10 @@ export default function Edit({user}: EditProps) {
                     {t('Save')}
                 </Button>
             </Form>
-        </Container>
+        </>
     );
 }
+
+Edit.layout = (page: any) => <Layout children={page}/>
+
+export default Edit;
