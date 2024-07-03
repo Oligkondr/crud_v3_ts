@@ -45,15 +45,15 @@ class UserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Необходимо заполнить имя.',
-            'gender.required' => 'Необходимо указать пол.',
-            'birthday.required' => 'Необходимо указать дату рождения.',
-            'birthday.date_format' => 'Неверно указана дата рождения.',
-            'email.required' => 'Необходимо заполнить e-mail.',
-            'email.email' => 'E-mail введен не корректно.',
-            'email.unique' => 'E-mail не уникален.',
-            'password.required' => 'Необходимо заполнить пароль.',
-            'password.min' => 'Пароль должен быть длиннее 8 символов.',
+            'name.required' => __('The name must be filled in.'),
+            'gender.required' => __('Gender must be specified.'),
+            'birthday.required' => __('You must indicate your date of birth.'),
+            'birthday.date_format' => __('The date of birth is incorrect.'),
+            'email.required' => __('You must fill in your email.'),
+            'email.email' => __('E-mail entered incorrectly.'),
+            'email.unique' => __('E-mail is not unique.'),
+            'password.required' => __('You must fill in a password.'),
+            'password.min' => __('The password must be longer than 8 characters.'),
         ];
     }
 }

@@ -1,21 +1,11 @@
 import {useLaravelReactI18n} from 'laravel-react-i18n';
 import Select from "@/Components/Select";
 
-
-export default function Index() {
+export default function Index({test}) {
     const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
     return (
         <>
-            <Select
-                className={"mr-20"}
-                value={currentLocale()}
-                options={[
-                    {value: 'ru', label: 'Русский'},
-                    {value: 'en', label: 'English'},
-                ]}
-                onChange={(event) => setLocale(event.currentTarget.value)}
-            />
-            <h1>{t('test')}</h1>
+            <h1>123 {test}</h1>
             <a href="/user">Ссылка</a>
         </>
     );

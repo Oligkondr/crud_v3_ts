@@ -16,6 +16,7 @@ interface ShowProps {
     user: any,
 }
 
+
 const Show = ({user}: ShowProps) => {
     const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
 

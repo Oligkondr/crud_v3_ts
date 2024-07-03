@@ -16,5 +16,14 @@
     "Password": "Пароль",
     "Create": "Создать",
     "Save": "Сохранить",
-    "Cancel": "Отменить"
+    "Cancel": "Отменить",
+    "The name must be filled in.": "Необходимо заполнить имя.",
+    "Gender must be specified.": "Необходимо указать пол.",
+    "You must indicate your date of birth.": "Необходимо указать дату рождения.",
+    "The date of birth is incorrect.": "Неверно указана дата рождения.",
+    "You must fill in your email.": "Необходимо заполнить e-mail.",
+    "E-mail entered incorrectly.": "E-mail введен некорректно.",
+    "E-mail is not unique.": "E-mail не уникален.",
+    "You must fill in a password.": "Необходимо заполнить пароль.",
+    "The password must be longer than 8 characters.": "Пароль должен быть длиннее 8 символов."
 }

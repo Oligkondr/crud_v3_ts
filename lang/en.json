@@ -16,5 +16,13 @@
     "Password": "Password",
     "Create": "Create",
     "Save": "Save",
-    "Cancel": "Cancel"
+    "The name must be filled in.": "The name must be filled in.",
+    "Gender must be specified.": "Gender must be specified.",
+    "You must indicate your date of birth.": "You must indicate your date of birth.",
+    "The date of birth is incorrect.": "The date of birth is incorrect.",
+    "You must fill in your email.": "You must fill in your email.",
+    "E-mail entered incorrectly.": "E-mail entered incorrectly.",
+    "E-mail is not unique.": "E-mail is not unique.",
+    "You must fill in a password.": "You must fill in a password.",
+    "The password must be longer than 8 characters.": "The password must be longer than 8 characters."
 }
