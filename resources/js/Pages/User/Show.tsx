@@ -18,7 +18,7 @@ interface ShowProps {
 
 
 const Show = ({user}: ShowProps) => {
-    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
+    const {t} = useLaravelReactI18n();
 
     const keys = {
         id: 'ID',

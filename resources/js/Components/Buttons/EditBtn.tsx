@@ -7,7 +7,7 @@ interface EditBtnProps {
 }
 
 export default function EditBtn({id}: EditBtnProps) {
-    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
+    const {t} = useLaravelReactI18n();
 
     return (
         <Link href={`/user/${id}/edit`} title={t('Edit')} className={'text-primary ml-2 fs-5'}>

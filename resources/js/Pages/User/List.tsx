@@ -12,7 +12,7 @@ interface ListProps {
 }
 
 const List = ({users}: ListProps) => {
-    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
+    const {t} = useLaravelReactI18n();
 
     return (
         <>

@@ -7,7 +7,7 @@ interface ShowBtnProps {
 }
 
 export default function ShowBtn({id}: ShowBtnProps) {
-    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
+    const {t} = useLaravelReactI18n();
     return (
         <Link href={`/user/${id}`} title={t('Show')} className={'text-success ml-2 fs-5'}>
             <Person className={'d-inline'}/>

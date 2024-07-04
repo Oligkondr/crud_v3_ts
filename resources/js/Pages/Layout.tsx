@@ -11,7 +11,7 @@ interface LayoutProps {
 }
 
 export default function Layout({children}: LayoutProps) {
-    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
+    const {currentLocale, setLocale} = useLaravelReactI18n();
 
     const setLang = (lang: string) => {
         setLocale(lang)

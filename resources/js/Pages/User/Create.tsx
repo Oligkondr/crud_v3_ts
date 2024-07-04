@@ -3,18 +3,16 @@ import Col from 'react-bootstrap/Col';
 import {Button, Form} from 'react-bootstrap';
 import Title from '@/Components/Title.js';
 import ListBtn from '@/Components/Buttons/ListBtn.js';
-import {useState} from 'react';
-import {router, usePage} from '@inertiajs/react';
+import {useForm} from '@inertiajs/react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
 import Layout from "@/Pages/Layout";
 
 const Create = () => {
 
-    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
+    const {t} = useLaravelReactI18n();
 
-    const {errors} = usePage().props
 
-    const [post, setPost] = useState({
+    const {setData, post, errors} = useForm({
         name: '',
         email: '',
         gender: '',
@@ -22,16 +20,9 @@ const Create = () => {
         password: '',
     });
 
-    const handleInput = (e: any) => {
-        console.log(typeof e)
-        setPost({...post, [e.target.name]: e.target.value});
-    };
-
     function handleSubmit(e: any) {
-        console.log(typeof e)
-
         e.preventDefault();
-        router.post('/user', post)
+        post('/user')
     }
 
     return (
@@ -51,7 +42,7 @@ const Create = () => {
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>{t('Name')}</Form.Label>
                             <Form.Control type="text" name="name" placeholder={t('Name')} required
-                                          onChange={handleInput}/>
+                                          onChange={e => setData('name', e.target.value)}/>
                             {errors.name && <Form.Text className="text-danger">{errors.name}</Form.Text>}
                         </Form.Group>
                         <Row>
@@ -59,7 +50,7 @@ const Create = () => {
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
                                     <Form.Label>{t('Birthday')}</Form.Label>
                                     <Form.Control type="date" name="birthday" placeholder={t('Birthday')} required
-                                                  onChange={handleInput}/>
+                                                  onChange={e => setData('birthday', e.target.value)}/>
                                     {errors.birthday &&
                                         <Form.Text className="text-danger">{errors.birthday}</Form.Text>}
                                 </Form.Group>
@@ -68,9 +59,9 @@ const Create = () => {
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Label>{t('Gender')}</Form.Label>
                                     <Form.Check type="radio" name="gender" label={t('Man')} value="Мужской"
-                                                onChange={handleInput}/>
+                                                onChange={e => setData('gender', e.target.value)}/>
                                     <Form.Check type="radio" name="gender" label={t('Woman')} value="Женский"
-                                                onChange={handleInput}/>
+                                                onChange={e => setData('gender', e.target.value)}/>
                                     {errors.gender && <Form.Text className="text-danger">{errors.gender}</Form.Text>}
                                 </Form.Group>
                             </Col>
@@ -80,14 +71,14 @@ const Create = () => {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>E-mail</Form.Label>
                             <Form.Control type="email" name="email" placeholder="E-mail" required
-                                          onChange={handleInput}/>
+                                          onChange={e => setData('email', e.target.value)}/>
                             {errors.email && <Form.Text className="text-danger">{errors.email}</Form.Text>}
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>{t('Password')}</Form.Label>
                             <Form.Control type="password" name="password" placeholder={t('Password')} required
-                                          onChange={handleInput}/>
+                                          onChange={e => setData('password', e.target.value)}/>
                             {errors.password && <Form.Text className="text-danger">{errors.password}</Form.Text>}
                         </Form.Group>
                     </Col>

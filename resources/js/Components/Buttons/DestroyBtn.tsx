@@ -1,7 +1,7 @@
-import { Trash3 } from 'react-bootstrap-icons';
-import { Link, router } from '@inertiajs/react';
-import { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import {Trash3} from 'react-bootstrap-icons';
+import {Link, router} from '@inertiajs/react';
+import {useState} from 'react';
+import {Button} from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import {useLaravelReactI18n} from "laravel-react-i18n";
 
@@ -9,9 +9,9 @@ interface DestroyBtnProps {
     id: number
 }
 
-export default function DestroyBtn ({ id }: DestroyBtnProps) {
+export default function DestroyBtn({id}: DestroyBtnProps) {
 
-    const {t, tChoice, currentLocale, setLocale, getLocales, loading, isLocale} = useLaravelReactI18n();
+    const {t} = useLaravelReactI18n();
 
     const [show, setShow] = useState(false);
 
