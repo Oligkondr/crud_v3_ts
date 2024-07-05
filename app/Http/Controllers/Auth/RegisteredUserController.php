@@ -34,6 +34,14 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ], [
+            'name.required' => __('The name must be filled in.'),
+            'email.required' => __('You must fill in your email.'),
+            'email.email' => __('E-mail entered incorrectly.'),
+            'email.unique' => __('E-mail is not unique.'),
+            'password.required' => __('You must fill in a password.'),
+            'password.min' => __('The password must be longer than 8 characters.'),
+            'password.confirmed' => __('The password field confirmation does not match.'),
         ]);
 
         $user = User::create([
@@ -46,6 +54,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('user.edit', [$user->id],absolute: false));
     }
 }

@@ -43,13 +43,13 @@ export default function Login({auth, status, canResetPassword}: PageProps<{
             <Form className={"mt-5"} onSubmit={submit}>
                 <Row>
                     <Col>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>E-mail</Form.Label>
                             <Form.Control type="email" placeholder='E-mail' required
                                           onChange={e => setData('email', e.target.value)}/>
                             {errors.email && <Form.Text className="text-danger">{errors.email}</Form.Text>}
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>{t('Password')}</Form.Label>
                             <Form.Control type="password" placeholder={t('Password')} required
                                           onChange={e => setData('password', e.target.value)}/>

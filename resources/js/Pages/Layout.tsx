@@ -7,7 +7,7 @@ import {Link} from "@inertiajs/react";
 import axios from "axios";
 import {PageProps} from '@/types';
 
-export default function Layout({auth, children, showLinks = true}: PageProps<{ children: any, showLinks: boolean }>) {
+export default function Layout({auth, children, showLinks = true}: PageProps<{ children: any, showLinks?: boolean }>) {
     const {t, currentLocale, setLocale} = useLaravelReactI18n();
 
     const setLang = (lang: string) => {

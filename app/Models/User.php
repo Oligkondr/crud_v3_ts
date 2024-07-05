@@ -102,8 +102,10 @@ class User extends Authenticatable
         ];
     }
 
-    public function getBirthdayFormatAttribute(): string
+    public function getBirthdayFormatAttribute(): ?string
     {
-        return $this->birthday->format('d.m.Y');
+        return $this->birthday
+            ? $this->birthday->format('d.m.Y')
+            : null;
     }
 }

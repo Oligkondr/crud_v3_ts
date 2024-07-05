@@ -28,5 +28,7 @@
     "The password must be longer than 8 characters.": "Пароль должен быть длиннее 8 символов.",
     "Log in": "Войти",
     "Registration": "Регистрация",
-    "Log out": "Выйти"
+    "Log out": "Выйти",
+    "Repeat password": "Повторите пароль",
+    "The password field confirmation does not match.": "Пароли не совпадают."
 }

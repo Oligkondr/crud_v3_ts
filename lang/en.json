@@ -27,5 +27,7 @@
     "The password must be longer than 8 characters.": "The password must be longer than 8 characters.",
     "Log in": "Log in",
     "Registration": "Registration",
-    "Log out": "Log out"
+    "Log out": "Log out",
+    "Repeat password": "Repeat password",
+    "The password field confirmation does not match.": "The password field confirmation does not match."
 }

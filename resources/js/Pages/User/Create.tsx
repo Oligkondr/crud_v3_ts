@@ -39,7 +39,7 @@ const Create = ({auth}: PageProps) => {
             <Form onSubmit={handleSubmit}>
                 <Row>
                     <Col>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>{t('Name')}</Form.Label>
                             <Form.Control type="text" name="name" placeholder={t('Name')} required
                                           onChange={e => setData('name', e.target.value)}/>
@@ -47,7 +47,7 @@ const Create = ({auth}: PageProps) => {
                         </Form.Group>
                         <Row>
                             <Col>
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Group className="mb-3">
                                     <Form.Label>{t('Birthday')}</Form.Label>
                                     <Form.Control type="date" name="birthday" placeholder={t('Birthday')} required
                                                   onChange={e => setData('birthday', e.target.value)}/>
@@ -56,7 +56,7 @@ const Create = ({auth}: PageProps) => {
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Group className="mb-3">
                                     <Form.Label>{t('Gender')}</Form.Label>
                                     <Form.Check type="radio" name="gender" label={t('Man')} value="Мужской"
                                                 onChange={e => setData('gender', e.target.value)}/>
@@ -68,14 +68,14 @@ const Create = ({auth}: PageProps) => {
                         </Row>
                     </Col>
                     <Col>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3">
                             <Form.Label>E-mail</Form.Label>
                             <Form.Control type="email" name="email" placeholder="E-mail" required
                                           onChange={e => setData('email', e.target.value)}/>
                             {errors.email && <Form.Text className="text-danger">{errors.email}</Form.Text>}
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3">
                             <Form.Label>{t('Password')}</Form.Label>
                             <Form.Control type="password" name="password" placeholder={t('Password')} required
                                           onChange={e => setData('password', e.target.value)}/>

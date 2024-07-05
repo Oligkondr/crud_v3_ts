@@ -38,7 +38,7 @@ const Edit = ({auth, user}: PageProps<{user: any}>) => {
             <Form onSubmit={handleSubmit}>
                 <Row>
                     <Col>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>{t('Name')}</Form.Label>
                             <Form.Control type="text" name="name" value={data.name} placeholder={t('Name')} required
                                           onChange={e => setData('name', e.target.value)}/>
@@ -46,17 +46,17 @@ const Edit = ({auth, user}: PageProps<{user: any}>) => {
                         </Form.Group>
                         <Row>
                             <Col>
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Group className="mb-3">
                                     <Form.Label>{t('Birthday')}</Form.Label>
                                     <Form.Control type="date" name="birthday" value={data.birthday}
-                                                  placeholder={t('Birthday')} required
+                                                  placeholder={t('Birthday')}
                                                   onChange={e => setData('birthday', e.target.value)}/>
                                     {errors.birthday &&
                                         <Form.Text className="text-danger">{errors.birthday}</Form.Text>}
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Group className="mb-3">
                                     <Form.Label>{t('Gender')}</Form.Label>
                                     <Form.Check type="radio" name="gender" label={t('Man')} value="Мужской"
                                                 checked={data.gender === 'Мужской'}
@@ -70,7 +70,7 @@ const Edit = ({auth, user}: PageProps<{user: any}>) => {
                         </Row>
                     </Col>
                     <Col>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3">
                             <Form.Label>E-mail</Form.Label>
                             <Form.Control type="email" name="email" value={data.email} placeholder="E-mail" required
                                           onChange={e => setData('email', e.target.value)}/>

@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'user');
 
-Route::resource('user', UserController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('user', UserController::class);
+});
 
 Route::get('test', [TestController::class, 'index'])->name('test');
 

@@ -26,12 +26,12 @@ class UserRequest extends FormRequest
 
         $rules = [
             'name' => 'required|string',
-            'gender' => 'required|in:Мужской,Женский',
-            'birthday' => 'required|date_format:Y-m-d',
+            'gender' => 'nullable|in:Мужской,Женский',
+            'birthday' => 'nullable|date_format:Y-m-d',
         ];
 
         if ($routeName == 'user.store') {
-            $rules['password'] = 'required|string|min:3';
+            $rules['password'] = 'required|string|min:8';
             $rules['email'] = 'required|email|unique:users,email';
         } else {
             $user = request('user');
