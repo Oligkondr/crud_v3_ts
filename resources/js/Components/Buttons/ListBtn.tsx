@@ -6,7 +6,7 @@ export default function ListBtn () {
     const {t} = useLaravelReactI18n();
 
     return (
-        <Link href="/user" title={t('User list')} className={'fs-4'}>
+        <Link href={route('user.index')} title={t('User list')} className={'fs-4'}>
             <People className={'d-inline'}/>
         </Link>
     );

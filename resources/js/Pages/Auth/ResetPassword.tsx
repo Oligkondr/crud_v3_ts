@@ -1,18 +1,22 @@
-import { useEffect, FormEventHandler } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import { Head, useForm } from '@inertiajs/react';
+import {FormEventHandler, useEffect} from 'react';
+import {useForm} from '@inertiajs/react';
+import {PageProps} from "@/types";
+import Layout from "@/Pages/Layout";
+import {Button, Form} from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import {useLaravelReactI18n} from "laravel-react-i18n";
+import Title from "@/Components/Title";
 
-export default function ResetPassword({ token, email }: { token: string, email: string }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
+export default function ResetPassword({auth, token, email}: PageProps<{ token: string, email: string }>) {
+    const {data, setData, post, processing, errors, reset} = useForm({
         token: token,
         email: email,
         password: '',
         password_confirmation: '',
     });
+
+    const {t} = useLaravelReactI18n();
 
     useEffect(() => {
         return () => {
@@ -27,64 +31,35 @@ export default function ResetPassword({ token, email }: { token: string, email: 
     };
 
     return (
-        <GuestLayout>
-            <Head title="Reset Password" />
+        <Layout auth={auth} showLinks={false}>
+            <Row>
+                <Col>
+                    <Title title={t('New password')}/>
+                </Col>
+            </Row>
+            <Form className={"mt-5"} onSubmit={submit}>
+                <Row>
+                    <Col>
+                        <Form.Group className="mb-3">
+                            <Form.Label>{t('Password')}</Form.Label>
+                            <Form.Control type="password" placeholder={t('Password')} required
+                                          onChange={e => setData('password', e.target.value)}/>
+                            {errors.password && <Form.Text className="text-danger">{errors.password}</Form.Text>}
+                        </Form.Group>
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        onChange={(e) => setData('email', e.target.value)}
-                    />
-
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        isFocused={true}
-                        onChange={(e) => setData('password', e.target.value)}
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
-
-                    <TextInput
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) => setData('password_confirmation', e.target.value)}
-                    />
-
-                    <InputError message={errors.password_confirmation} className="mt-2" />
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Reset Password
-                    </PrimaryButton>
-                </div>
-            </form>
-        </GuestLayout>
+                        <Form.Group className="mb-3">
+                            <Form.Label>{t('Repeat password')}</Form.Label>
+                            <Form.Control type="password" placeholder={t('Repeat password')} required
+                                          onChange={e => setData('password_confirmation', e.target.value)}/>
+                            {errors.password_confirmation &&
+                                <Form.Text className="text-danger">{errors.password_confirmation}</Form.Text>}
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Button variant="primary" type="submit">
+                    {t('Save')}
+                </Button>
+            </Form>
+        </Layout>
     );
 }

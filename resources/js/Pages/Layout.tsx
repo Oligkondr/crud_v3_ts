@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import {Link} from "@inertiajs/react";
 import axios from "axios";
 import {PageProps} from '@/types';
+import HomeBtn from "@/Components/Buttons/HomeBtn";
 
 export default function Layout({auth, children, showLinks = true}: PageProps<{ children: any, showLinks?: boolean }>) {
     const {t, currentLocale, setLocale} = useLaravelReactI18n();
@@ -15,26 +16,28 @@ export default function Layout({auth, children, showLinks = true}: PageProps<{ c
         axios.post('/api/set-lang', {lang})
     }
 
-    console.log(auth)
-
     return (
         <Container fluid="md">
             <main>
                 <header className={"mt-2"}>
                     <Row>
-                        {showLinks && <Col>
-                            {auth.user ? (
+                        <Col>
+                            <HomeBtn/>
+                        </Col>
+                        <Col>
+                        {showLinks && (auth.user ? (
                                 <>
                                     <span className={"mr-3"}>{auth.user.name}</span>
-                                    <Link href={route('logout')} method="post">{t('Log out')}</Link>
+                                    <Link href={route('logout')} method="post" className={"text-decoration-underline"}>{t('Log out')}</Link>
                                 </>
                             ) : (
                                 <>
-                                    <Link href={route('login')} className={"mr-3"}>{t('Log in')}</Link>
-                                    <Link href={route('register')}>{t('Registration')}</Link>
+                                    <Link href={route('login')} className={"mr-3 text-decoration-underline"}>{t('Log in')}</Link>
+                                    <Link href={route('register')} className={"text-decoration-underline"}>{t('Registration')}</Link>
                                 </>
-                            )}
-                        </Col>}
+                            ))
+                        }
+                        </Col>
                         <Col className={"text-right"}>
                             <Select
                                 value={currentLocale()}

@@ -9,7 +9,7 @@ interface ShowBtnProps {
 export default function ShowBtn({id}: ShowBtnProps) {
     const {t} = useLaravelReactI18n();
     return (
-        <Link href={`/user/${id}`} title={t('Show')} className={'text-success ml-2 fs-5'}>
+        <Link href={route('user.show', [id])} title={t('Show')} className={'text-success ml-2 fs-5'}>
             <Person className={'d-inline'}/>
         </Link>
     );

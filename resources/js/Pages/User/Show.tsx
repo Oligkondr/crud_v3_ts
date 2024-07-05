@@ -24,7 +24,6 @@ const Show = ({auth, user}: PageProps<{user: any}>) => {
         email: 'E-mail',
     };
 
-    // @ts-ignore
     return (
         <Layout auth={auth}>
             <Row>

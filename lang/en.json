@@ -33,5 +33,14 @@
     "E-mail password reset link": "E-mail password reset link",
     "Password recovery": "Password recovery",
     "We can't find a user with that email address.": "We can't find a user with that email address.",
-    "Please wait before retrying.": "Please wait before retrying."
+    "Please wait before retrying.": "Please wait before retrying.",
+    "New password": "New password",
+    "Remember me": "Remember me",
+    "Forgot your password?": "Forgot your password?",
+    "User manager": "User manager",
+    "Submit": "Submit",
+    "Main": "Main",
+    "These credentials do not match our records.": "These credentials do not match our records.",
+    "The provided password is incorrect.": "The provided password is incorrect.",
+    "Too many login attempts. Please try again in :seconds seconds.":"Too many login attempts. Please try again in :seconds seconds."
 }

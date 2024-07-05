@@ -3,8 +3,11 @@
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
-Route::redirect('/', 'user');
+Route::get('/', function () {
+    return Inertia::render('Main');
+})->name('main');
 
 Route::middleware('auth')->group(function () {
     Route::resource('user', UserController::class);

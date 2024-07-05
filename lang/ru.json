@@ -34,5 +34,14 @@
     "E-mail password reset link": "Ссылка для сброса пароля",
     "Password recovery": "Сброс пароля",
     "We can't find a user with that email address.": "Пользователь с таким e-mail не найден.",
-    "Please wait before retrying.": "Повторите попытку позже."
+    "Please wait before retrying.": "Повторите попытку позже.",
+    "New password": "Новый пароль",
+    "Remember me": "Запомнить меня",
+    "Forgot your password?": "Забыли пароль?",
+    "User manager": "Управление пользователями",
+    "Submit": "Отправить",
+    "Main": "Главная",
+    "These credentials do not match our records.": "Учетные данные не верны.",
+    "The provided password is incorrect.": "Неверный пароль",
+    "Too many login attempts. Please try again in :seconds seconds.":"Слишком много попыток входа. Повторите попытку через :seconds секунд."
 }

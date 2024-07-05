@@ -10,7 +10,7 @@ export default function EditBtn({id}: EditBtnProps) {
     const {t} = useLaravelReactI18n();
 
     return (
-        <Link href={`/user/${id}/edit`} title={t('Edit')} className={'text-primary ml-2 fs-5'}>
+        <Link href={route('user.edit', [id])} title={t('Edit')} className={'text-primary ml-2 fs-5'}>
             <PencilSquare className={'d-inline'}/>
         </Link>
     );
