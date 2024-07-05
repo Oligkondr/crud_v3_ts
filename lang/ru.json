@@ -30,5 +30,9 @@
     "Registration": "Регистрация",
     "Log out": "Выйти",
     "Repeat password": "Повторите пароль",
-    "The password field confirmation does not match.": "Пароли не совпадают."
+    "The password field confirmation does not match.": "Пароли не совпадают.",
+    "E-mail password reset link": "Ссылка для сброса пароля",
+    "Password recovery": "Сброс пароля",
+    "We can't find a user with that email address.": "Пользователь с таким e-mail не найден.",
+    "Please wait before retrying.": "Повторите попытку позже."
 }

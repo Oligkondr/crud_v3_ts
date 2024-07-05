@@ -31,6 +31,9 @@ class PasswordResetLinkController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
+        ], [
+            'email.required' => __('You must fill in your email.'),
+            'email.email' => __('E-mail entered incorrectly.'),
         ]);
 
         // We will send the password reset link to this user. Once we have attempted
@@ -45,7 +48,7 @@ class PasswordResetLinkController extends Controller
         }
 
         throw ValidationException::withMessages([
-            'email' => [trans($status)],
+            'email' => [__(trans($status))],
         ]);
-    }
+}
 }

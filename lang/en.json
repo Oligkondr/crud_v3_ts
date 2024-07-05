@@ -29,5 +29,9 @@
     "Registration": "Registration",
     "Log out": "Log out",
     "Repeat password": "Repeat password",
-    "The password field confirmation does not match.": "The password field confirmation does not match."
+    "The password field confirmation does not match.": "The password field confirmation does not match.",
+    "E-mail password reset link": "E-mail password reset link",
+    "Password recovery": "Password recovery",
+    "We can't find a user with that email address.": "We can't find a user with that email address.",
+    "Please wait before retrying.": "Please wait before retrying."
 }
