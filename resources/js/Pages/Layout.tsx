@@ -5,9 +5,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Link} from "@inertiajs/react";
 import axios from "axios";
-import { PageProps } from '@/types';
+import {PageProps} from '@/types';
 
-export default function Layout({auth, children}: PageProps<{children: any}>) {
+export default function Layout({auth, children, showLinks = true}: PageProps<{ children: any, showLinks: boolean }>) {
     const {t, currentLocale, setLocale} = useLaravelReactI18n();
 
     const setLang = (lang: string) => {
@@ -15,16 +15,26 @@ export default function Layout({auth, children}: PageProps<{children: any}>) {
         axios.post('/api/set-lang', {lang})
     }
 
+    console.log(auth)
+
     return (
         <Container fluid="md">
             <main>
                 <header className={"mt-2"}>
                     <Row>
-                        <Col>
-                            <Link href={route('login')} className={"mr-3"}>{t('Log in')}</Link>
-                            <Link href={route('register')} className={"mr-3"}>{t('Registration')}</Link>
-                            <Link href={route('logout')}>{t('Log out')}</Link>
-                        </Col>
+                        {showLinks && <Col>
+                            {auth.user ? (
+                                <>
+                                    <span className={"mr-3"}>{auth.user.name}</span>
+                                    <Link href={route('logout')} method="post">{t('Log out')}</Link>
+                                </>
+                            ) : (
+                                <>
+                                    <Link href={route('login')} className={"mr-3"}>{t('Log in')}</Link>
+                                    <Link href={route('register')}>{t('Registration')}</Link>
+                                </>
+                            )}
+                        </Col>}
                         <Col className={"text-right"}>
                             <Select
                                 value={currentLocale()}
