@@ -9,3 +9,6 @@ Route::redirect('/', 'user');
 Route::resource('user', UserController::class);
 
 Route::get('test', [TestController::class, 'index'])->name('test');
+
+require __DIR__.'/auth.php';
+

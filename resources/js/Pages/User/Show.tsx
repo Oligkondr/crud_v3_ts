@@ -11,16 +11,12 @@ import {Fragment} from 'react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
 import Layout from "@/Pages/Layout";
 import List from "@/Pages/User/List";
+import {PageProps} from "@/types";
 
-interface ShowProps {
-    user: any,
-}
-
-
-const Show = ({user}: ShowProps) => {
+const Show = ({auth, user}: PageProps<{user: any}>) => {
     const {t} = useLaravelReactI18n();
 
-    const keys = {
+    const keys: any = {
         id: 'ID',
         name: t('Name'),
         gender: t('Gender'),
@@ -30,7 +26,7 @@ const Show = ({user}: ShowProps) => {
 
     // @ts-ignore
     return (
-        <Container fluid="md">
+        <Layout auth={auth}>
             <Row>
                 <Col>
                     <Title title={`${t('User')} #${user.id}`}/>
@@ -50,10 +46,8 @@ const Show = ({user}: ShowProps) => {
                 ))}
                 </tbody>
             </Table>
-        </Container>
+        </Layout>
     );
 }
-
-Show.layout = (page: any) => <Layout children={page}/>
 
 export default Show;

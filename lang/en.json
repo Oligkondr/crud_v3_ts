@@ -24,5 +24,8 @@
     "E-mail entered incorrectly.": "E-mail entered incorrectly.",
     "E-mail is not unique.": "E-mail is not unique.",
     "You must fill in a password.": "You must fill in a password.",
-    "The password must be longer than 8 characters.": "The password must be longer than 8 characters."
+    "The password must be longer than 8 characters.": "The password must be longer than 8 characters.",
+    "Log in": "Log in",
+    "Registration": "Registration",
+    "Log out": "Log out"
 }

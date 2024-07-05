@@ -6,11 +6,11 @@ import ListBtn from '@/Components/Buttons/ListBtn.js';
 import {useForm} from '@inertiajs/react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
 import Layout from "@/Pages/Layout";
+import {PageProps} from "@/types";
 
-const Create = () => {
+const Create = ({auth}: PageProps) => {
 
     const {t} = useLaravelReactI18n();
-
 
     const {setData, post, errors} = useForm({
         name: '',
@@ -26,7 +26,7 @@ const Create = () => {
     }
 
     return (
-        <>
+        <Layout auth={auth}>
             <Row>
                 <Col>
                     <Title title={t('Create user')}/>
@@ -87,10 +87,8 @@ const Create = () => {
                     {t('Create')}
                 </Button>
             </Form>
-        </>
+        </Layout>
     );
 }
-
-Create.layout = (page: any) => <Layout children={page}/>
 
 export default Create;

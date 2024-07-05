@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import i18n from 'laravel-react-i18n/vite'
+import i18n from 'laravel-react-i18n/vite';
 
 export default defineConfig({
     plugins: [
@@ -20,6 +20,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+            'ziggy-js': path.resolve('vendor/tightenco/ziggy'),
         },
     },
 });

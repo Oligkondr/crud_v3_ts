@@ -32,6 +32,7 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
+            'tst' => 12345,
             'auth' => [
                 'user' => $request->user(),
             ],

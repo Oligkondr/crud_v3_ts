@@ -6,13 +6,9 @@ import ListBtn from '@/Components/Buttons/ListBtn.js';
 import {useForm} from '@inertiajs/react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
 import Layout from "@/Pages/Layout";
+import {PageProps} from "@/types";
 
-interface EditProps {
-    user: any,
-}
-
-
-const Edit = ({user}: EditProps) => {
+const Edit = ({auth, user}: PageProps<{user: any}>) => {
 
     const {t} = useLaravelReactI18n();
 
@@ -29,7 +25,7 @@ const Edit = ({user}: EditProps) => {
     }
 
     return (
-        <>
+        <Layout auth={auth}>
             <Row>
                 <Col>
                     <Title title={`${t('User')} #${user.id}`}/>
@@ -86,10 +82,8 @@ const Edit = ({user}: EditProps) => {
                     {t('Save')}
                 </Button>
             </Form>
-        </>
+        </Layout>
     );
 }
-
-Edit.layout = (page: any) => <Layout children={page}/>
 
 export default Edit;

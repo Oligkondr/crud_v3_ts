@@ -3,15 +3,12 @@ import Select from "@/Components/Select";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {router} from "@inertiajs/react";
+import {Link} from "@inertiajs/react";
 import axios from "axios";
+import { PageProps } from '@/types';
 
-interface LayoutProps {
-    children: any
-}
-
-export default function Layout({children}: LayoutProps) {
-    const {currentLocale, setLocale} = useLaravelReactI18n();
+export default function Layout({auth, children}: PageProps<{children: any}>) {
+    const {t, currentLocale, setLocale} = useLaravelReactI18n();
 
     const setLang = (lang: string) => {
         setLocale(lang)
@@ -23,6 +20,11 @@ export default function Layout({children}: LayoutProps) {
             <main>
                 <header className={"mt-2"}>
                     <Row>
+                        <Col>
+                            <Link href={route('login')} className={"mr-3"}>{t('Log in')}</Link>
+                            <Link href={route('register')} className={"mr-3"}>{t('Registration')}</Link>
+                            <Link href={route('logout')}>{t('Log out')}</Link>
+                        </Col>
                         <Col className={"text-right"}>
                             <Select
                                 value={currentLocale()}

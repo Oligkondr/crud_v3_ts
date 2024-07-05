@@ -6,16 +6,13 @@ import CreateBtn from '@/Components/Buttons/CreateBtn.js';
 import TableRow from '@/Components/List/TableRow.js';
 import {useLaravelReactI18n} from "laravel-react-i18n";
 import Layout from "@/Pages/Layout";
+import {PageProps} from "@/types";
 
-interface ListProps {
-    users: any
-}
-
-const List = ({users}: ListProps) => {
+const List = ({auth, users}: PageProps<{ users: any }>) => {
     const {t} = useLaravelReactI18n();
 
     return (
-        <>
+        <Layout auth={auth}>
             <Row>
                 <Col>
                     <Title title={t('User list')}/>
@@ -41,10 +38,8 @@ const List = ({users}: ListProps) => {
                 ))}
                 </tbody>
             </Table>
-        </>
+        </Layout>
     );
 }
-
-List.layout = (page: any) => <Layout children={page}/>
 
 export default List;

@@ -25,5 +25,8 @@
     "E-mail entered incorrectly.": "E-mail введен некорректно.",
     "E-mail is not unique.": "E-mail не уникален.",
     "You must fill in a password.": "Необходимо заполнить пароль.",
-    "The password must be longer than 8 characters.": "Пароль должен быть длиннее 8 символов."
+    "The password must be longer than 8 characters.": "Пароль должен быть длиннее 8 символов.",
+    "Log in": "Войти",
+    "Registration": "Регистрация",
+    "Log out": "Выйти"
 }
