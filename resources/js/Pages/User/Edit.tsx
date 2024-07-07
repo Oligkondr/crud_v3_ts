@@ -7,8 +7,9 @@ import {useForm} from '@inertiajs/react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
 import Layout from "@/Pages/Layout";
 import {PageProps} from "@/types";
+import Select from "@/Components/Select";
 
-const Edit = ({auth, user}: PageProps<{user: any}>) => {
+const Edit = ({auth, user}: PageProps<{ user: any }>) => {
 
     const {t} = useLaravelReactI18n();
 
@@ -17,6 +18,7 @@ const Edit = ({auth, user}: PageProps<{user: any}>) => {
         email: user.email,
         gender: user.gender,
         birthday: user.birthday,
+        state: user.state,
     });
 
     function handleSubmit(e: any) {
@@ -75,6 +77,14 @@ const Edit = ({auth, user}: PageProps<{user: any}>) => {
                             <Form.Control type="email" name="email" value={data.email} placeholder="E-mail" required
                                           onChange={e => setData('email', e.target.value)}/>
                             {errors.email && <Form.Text className="text-danger">{errors.email}</Form.Text>}
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>{t('State')}</Form.Label>
+                            <Form.Select name="state" value={data.state} onChange={e => setData('state', e.target.value)}>
+                                <option value="active">{t('active')}</option>
+                                <option value="banned">{t('banned')}</option>
+                            </Form.Select>
+                            {errors.state && <Form.Text className="text-danger">{errors.state}</Form.Text>}
                         </Form.Group>
                     </Col>
                 </Row>

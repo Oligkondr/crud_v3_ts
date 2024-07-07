@@ -43,5 +43,8 @@
     "Main": "Главная",
     "These credentials do not match our records.": "Учетные данные не верны.",
     "The provided password is incorrect.": "Неверный пароль",
-    "Too many login attempts. Please try again in :seconds seconds.":"Слишком много попыток входа. Повторите попытку через :seconds секунд."
+    "Too many login attempts. Please try again in :seconds seconds.":"Слишком много попыток входа. Повторите попытку через :seconds секунд.",
+    "State": "Статус",
+    "active": "Активен",
+    "banned": "Заблокирован"
 }

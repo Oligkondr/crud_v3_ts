@@ -25,8 +25,9 @@ const List = ({auth, users}: PageProps<{ users: any }>) => {
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>{t('Name')}</th>
                     <th>E-mail</th>
+                    <th>{t('State')}</th>
+                    <th>{t('Name')}</th>
                     <th>{t('Gender')}</th>
                     <th>{t('Birthday')}</th>
                     <th></th>

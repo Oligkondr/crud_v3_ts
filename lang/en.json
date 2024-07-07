@@ -42,5 +42,8 @@
     "Main": "Main",
     "These credentials do not match our records.": "These credentials do not match our records.",
     "The provided password is incorrect.": "The provided password is incorrect.",
-    "Too many login attempts. Please try again in :seconds seconds.":"Too many login attempts. Please try again in :seconds seconds."
+    "Too many login attempts. Please try again in :seconds seconds.":"Too many login attempts. Please try again in :seconds seconds.",
+    "State": "State",
+    "active": "Active",
+    "banned": "Banned"
 }
