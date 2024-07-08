@@ -45,5 +45,7 @@
     "Too many login attempts. Please try again in :seconds seconds.":"Too many login attempts. Please try again in :seconds seconds.",
     "State": "State",
     "active": "Active",
-    "banned": "Banned"
+    "banned": "Banned",
+    "User is banned.": "User is banned.",
+    "Avatar": "Avatar"
 }

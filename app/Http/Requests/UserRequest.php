@@ -37,6 +37,7 @@ class UserRequest extends FormRequest
             $user = request('user');
             $rules['email'] = "required|email|unique:users,email,{$user->id}";
             $rules['state'] = "required|in:active,banned";
+            $rules['avatar'] = "nullable|file";
         }
 
         return $rules;

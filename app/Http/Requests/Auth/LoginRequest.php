@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\User;
+use App\States\UserStates\Banned;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +42,17 @@ class LoginRequest extends FormRequest
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
+
+        $isBanned = User::query()
+            ->where('email', request('email'))
+            ->where('state', Banned::$name)
+            ->count();
+
+        if ($isBanned) {
+            throw ValidationException::withMessages([
+                'email' => __('User is banned.'),
+            ]);
+        }
 
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());

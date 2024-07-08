@@ -7,23 +7,26 @@ import {useForm} from '@inertiajs/react';
 import {useLaravelReactI18n} from "laravel-react-i18n";
 import Layout from "@/Pages/Layout";
 import {PageProps} from "@/types";
-import Select from "@/Components/Select";
 
 const Edit = ({auth, user}: PageProps<{ user: any }>) => {
 
     const {t} = useLaravelReactI18n();
 
-    const {data, setData, put, errors} = useForm({
+    const {data, setData, post, errors} = useForm({
         name: user.name,
         email: user.email,
         gender: user.gender,
         birthday: user.birthday,
         state: user.state,
+        avatar: null,
+        _method: 'PUT',
     });
 
     function handleSubmit(e: any) {
         e.preventDefault();
-        put(`/user/${user.id}`);
+        post(`/user/${user.id}`, {
+            forceFormData: true,
+        });
     }
 
     return (
@@ -70,6 +73,12 @@ const Edit = ({auth, user}: PageProps<{ user: any }>) => {
                                 </Form.Group>
                             </Col>
                         </Row>
+                        <Row>
+                            <Form.Group className={'mb-3'}>
+                                <Form.Label>{t('Avatar')}</Form.Label>
+                                <Form.Control type="file" onChange={e => setData('avatar', e.target.files[0])}/>
+                            </Form.Group>
+                        </Row>
                     </Col>
                     <Col>
                         <Form.Group className="mb-3">
@@ -78,9 +87,11 @@ const Edit = ({auth, user}: PageProps<{ user: any }>) => {
                                           onChange={e => setData('email', e.target.value)}/>
                             {errors.email && <Form.Text className="text-danger">{errors.email}</Form.Text>}
                         </Form.Group>
+
                         <Form.Group className="mb-3">
                             <Form.Label>{t('State')}</Form.Label>
-                            <Form.Select name="state" value={data.state} onChange={e => setData('state', e.target.value)}>
+                            <Form.Select name="state" value={data.state}
+                                         onChange={e => setData('state', e.target.value)}>
                                 <option value="active">{t('active')}</option>
                                 <option value="banned">{t('banned')}</option>
                             </Form.Select>

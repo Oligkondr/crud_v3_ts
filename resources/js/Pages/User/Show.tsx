@@ -1,6 +1,6 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {Table} from 'react-bootstrap';
+import {Table, Image} from 'react-bootstrap';
 import Title from '@/Components/Title.js';
 import ListBtn from '@/Components/Buttons/ListBtn.js';
 import EditBtn from '@/Components/Buttons/EditBtn.js';
@@ -20,6 +20,7 @@ const Show = ({auth, user}: PageProps<{ user: any }>) => {
         name: t('Name'),
         gender: t('Gender'),
         birthday_format: t('Birthday'),
+        avatar: t('Avatar'),
     };
 
     return (
@@ -37,7 +38,7 @@ const Show = ({auth, user}: PageProps<{ user: any }>) => {
             <Table striped>
                 <tbody>
                 {Object.keys(keys).map((key, index) => (
-                    <TableRow key={index} name={keys[key]} value={user[key]} trans={key == 'state'}/>
+                    <TableRow key={index} name={keys[key]} value={user[key]} trans={key == 'state'} image={key == 'avatar'}/>
                 ))}
                 </tbody>
             </Table>

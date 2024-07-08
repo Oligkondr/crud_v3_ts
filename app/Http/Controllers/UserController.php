@@ -25,7 +25,6 @@ class UserController extends Controller
      */
     public function create(): Response|ResponseFactory
     {
-//        dd(request());
         return inertia('User/Create');
     }
 
@@ -60,9 +59,15 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user): \Symfony\Component\HttpFoundation\Response
     {
-        $data = $request->validated();
+        $data = $request->except(['avatar']);
 
         $user->update($data);
+
+        if ($request->hasFile('avatar')) {
+            $user->avatar = $request->file('avatar')
+                ->store("avatars/{$user->id}", ['disk' => 'public']);
+            $user->save();
+        }
 
         return Inertia::location(route('user.show', [$user->id]));
     }
